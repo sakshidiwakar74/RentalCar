@@ -34,6 +34,13 @@ class _HomeScreenState extends State<HomeScreen> {
     false,
     false,
   ];
+  List<String> image = [
+    'assets/images/image0.png',
+    'assets/images/image1.png',
+    'assets/images/image2.png',
+    'assets/images/image3.png',
+    'assets/images/image4.png',
+  ];
 
   @override
   void initState() {
@@ -140,7 +147,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         
                         return GestureDetector(
                           onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => BookingScreen(carName: _carName[index], price: randomNumbers[index], image: 'assets/images/image$index.png')));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => BookingScreen(carName: _carName, price: randomNumbers, image: image, index: index)));
                           },
                           child: Container(
                             //child:Text('Lamborgini', style: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),),

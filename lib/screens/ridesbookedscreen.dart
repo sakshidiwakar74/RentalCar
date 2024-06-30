@@ -12,6 +12,7 @@ class RidesBookedScreen extends StatefulWidget {
 class _RidesBookedScreenState extends State<RidesBookedScreen> {
   DatabaseHelper databaseHelper = DatabaseHelper.instance;
   List<CarRide> _rideList = [];
+  int index = 0;
   
   Future<void> getRideList() async{
     _rideList = await databaseHelper.getAllCarRides();
@@ -19,6 +20,7 @@ class _RidesBookedScreenState extends State<RidesBookedScreen> {
       
     });
   }
+  
   @override
   void initState() {
     // TODO: implement initState
@@ -40,12 +42,12 @@ class _RidesBookedScreenState extends State<RidesBookedScreen> {
             title: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Name of the user who has booked: ${_rideList[index].name}', style: TextStyle(fontWeight: FontWeight.w700),),
-                Text('Phone number of the user: ${_rideList[index].phoneNumber}'),
-                Text('Pickup location: ${_rideList[index].fromAddress}'),
-                Text('Drop location: ${_rideList[index].toAddress}'),
-                Text('Car name: ${_rideList[index].carName}'),
-                Text('Distance: ${_rideList[index].distance}')
+                Text('${index+1}. Name of the user who has booked: ${_rideList[index].name}', style: TextStyle(fontWeight: FontWeight.w700, color: Colors.blue),),
+                Text('Phone number of the user: ${_rideList[index].phoneNumber}', style: TextStyle(fontWeight: FontWeight.w700, color: Colors.black),),
+                Text('Pickup location: ${_rideList[index].fromAddress}', style: TextStyle(fontWeight: FontWeight.w700, color: Colors.black),),
+                Text('Drop location: ${_rideList[index].toAddress}', style: TextStyle(fontWeight: FontWeight.w700, color: Colors.black),),
+                Text('Car name: ${_rideList[index].carName}', style: TextStyle(fontWeight: FontWeight.w700, color: Colors.black),),
+                Text('Distance: ${_rideList[index].distance}', style: TextStyle(fontWeight: FontWeight.w700, color: Colors.black),)
               ],
             ),
           );
